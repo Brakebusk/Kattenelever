@@ -1,5 +1,6 @@
-# Katteneveler source code
+# Kattenelever source code
 En uoffisiell nettside for Kattens elever
+https://kattenelever.no
 
 Hvis du tenker å jobbe med dette er det viktig at du konfigurerer editoren din til å bruke LF line endings. På Windows vil dette så og si alltid være konfigurert til å være CRLF, noe som serveren ikke går god for ¯\\_(ツ)_/¯
 
