@@ -1,0 +1,101 @@
+@media (max-width: 1700px) {
+	#sidepanel {
+		position: static;
+		right: auto;
+		margin-bottom: auto;
+		width: auto;
+		margin-top: 30px;
+	}
+	#sidepanel-container {
+		cursor: pointer;
+	}
+	#sidepanel-container:hover{
+		/*color: white;
+		background: #32a094;
+		transition: ease-in 0.2s;
+		border-color: #32a094;*/
+		box-shadow: 0px 0px 5px #2d9287;
+	}
+	#plus-sidepanel {
+		display: inline;
+	}
+	#plus-sidepanel, #minus-sidepanel {
+		color: #32a094;
+	}
+	#section-divider {
+		display: block;
+		margin: 25px 0;
+	}
+	#post-section {
+		padding-top: 0;
+	}
+	#sidepanel-image-container {
+		width: 40%;
+	}
+	#sidepanel-content-container {
+		display: none;
+	}
+	.showinline {
+		display: inline !important;
+	}
+	.hideinline {
+		display: none !important;
+	}
+	.showblock {
+		display: block;
+	}
+}
+@media (max-width: 1150px) {
+	#new-post-button, #new-event-button {
+		float: none;
+	}
+	#new-post-section-newline {
+		display: none;
+	}
+	#new-post-section {
+		position: static;
+		top: auto;
+		right: auto;
+		margin-right: auto;
+		margin-top: 15px;
+	}
+	#sidepanel {
+		margin-top: 15px;
+	}
+}
+@media (max-width: 900px) {
+	#login-wrap {
+		position: static;
+	}
+	#settings-button-wrap {
+		text-align: center;
+	}
+	header {
+		height: auto;
+	}
+	#navigation-list>li {
+		display: list-item;
+	}
+	#navigation {
+		height: auto;
+	}
+	#logout {
+		display: block;
+		margin: auto;
+	}
+	#navigation-separator {
+		display: block;
+	}
+	#new-post-panel, #settings-panel, #sidepanel-settings, #edit-post-panel {
+		width: 90%;
+	}
+	#main-area, #inspect-post {
+	    width: 90%;
+	}
+}
+@media (max-width: 800px) {
+	.post-body img {
+		width: 100%;
+		height: auto;
+	}
+}

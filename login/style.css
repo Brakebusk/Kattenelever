@@ -1,0 +1,109 @@
+body {
+    background-color: #32a094;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+}    
+#pagewrap {
+    width: 100%;
+    text-align: center;
+}
+hr {
+    width: 350px;
+    border: 0;
+    border-top: 1px solid #8c8c8c;
+    border-bottom: 1px solid #fff;
+}
+#loginformwrap {
+    display: inline-block;
+    border-radius: 5px;
+    background: white;
+    padding: 20px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    width: 550px;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.33);
+}
+input[type="text"], input[type="password"] {
+    text-align: center;
+    margin-bottom: 10px;
+    color: grey;
+    height: 40px;
+    font-size: 16px;
+    font-weight: lighter;
+    width: 215px;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+input[type="submit"] {
+    margin-top: 10px;
+    width: 215px;
+    height: 38px;
+    font-size: 16px;
+    font-family: inherit;
+    color: white;
+    font-weight: 100;
+    background-color: #00AAE5;
+    border-radius: 3px;
+    border: 1px solid #DDDDDD;
+    cursor: pointer;
+    transition: .3s linear;
+}
+input[type="submit"]:hover {
+    background-color: #008DE6;
+    transition: background-color .3s linear;
+}
+h1 {
+    margin-bottom: 20px;
+	font-size: 1.5em;
+}
+#loginform {
+	margin-top: 30px;
+}
+#passwordRecoveryWrap.hide {
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    opacity: 0;
+    visibility: hidden;
+}
+#passwordRecoveryWrap.show {
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    opacity: 1;
+    visibility: visible;
+}
+#passwordRecoveryWrap {
+    margin: auto;
+    border-radius: 5px;
+    background: white;
+    padding: 20px;
+    padding-bottom: 40px;
+    width: 550px;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.33);
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+#passwordRecoveryEmailField {
+    height: 32px;
+}
+input[type="email"] {
+    text-align: center;
+    margin-bottom: 10px;
+    color: grey;
+    height: 40px;
+    font-size: 16px;
+    font-weight: lighter;
+    width: 215px;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+}

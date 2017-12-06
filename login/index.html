@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kattenelever</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="shortcut icon" href="../media/favicon.png">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=1">
+    <link rel="stylesheet" href="../stylesheets/font-awesome/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="pagewrap">
+		<div id="loginformwrap">
+			<h1>Logg på Kattenelever</h1>
+			<hr>
+			<form action="javascript:processlogin()" id="loginform">
+				<input type="text" id="Iusername" autofocus required="required" placeholder="Brukernavn"><br>
+				<input type="password" id="Ipassword" required="required" placeholder="Passord"><br>
+				<input type="submit" value="Logg inn">
+			</form>
+			<div id="response"></div>
+			<div style="margin-top: 10px;font-size: 0.9em;"><a href="#" onclick="togglePasswordRecovery();">Glemt passord?</a></div>
+		</div>
+	</div>
+	<div id="passwordRecoveryWrap" class="hide">
+		<p style="font-weight: bold;">Har du glemt passordet ditt?</p>
+		<p>Oppgi e-postadressen som er registrert til brukeren din i feltet under, så sender vi deg en e-post for å sette nytt passord.</p>
+		<form action="javascript:sendRecovery()">
+			<input type="email" required="required" id="passwordRecoveryEmailField" placeholder="Din e-postadresse">
+			<input type="submit" value="Send" id="confirmRecoveryBtn">
+		</form>
+		<div id="recoveryResponseField"></div>
+	</div>
+	<script>
+		function processlogin() {
+			var username = document.getElementById("Iusername").value;
+			username = encodeURIComponent(username.trim());
+			var password = document.getElementById("Ipassword").value;
+			password = encodeURIComponent(password.trim());
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200 && xhttp.responseText.indexOf("{SUCCESS}") != -1) {
+					var returnto = "";
+					if (getParameterByName("returnto") !== null) {
+						returnto = decodeURIComponent(getParameterByName("returnto"));
+					}
+					window.location = "../" + returnto;
+				} else if (xhttp.readyState == 4) {
+					document.getElementById("response").innerHTML = "Fikk ikke logget inn";
+				}
+			};
+			xhttp.open("POST", "/scripts/login/processlogin.cgi", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("username=" + username + "&password=" + password);
+		}
+		function togglePasswordRecovery() {
+			var wrapper = document.getElementById("passwordRecoveryWrap");
+			if (wrapper.className == 'hide') {
+				wrapper.className = 'show';
+			} else {
+				wrapper.className = 'hide';
+			}
+		}
+		function sendRecovery() {
+			var emailField = document.getElementById("passwordRecoveryEmailField");
+			var responseField = document.getElementById("recoveryResponseField");
+			responseField.innerHTML = "Laster..";
+			var email = encodeURIComponent(emailField.value.trim());
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					if (xhttp.responseText.indexOf("{SENT}") > -1) {
+						responseField.innerHTML = "Suksess. Du vil snart motta en e-post for gjenopprettelse av passord.";
+					} else if (xhttp.responseText.indexOf("{NOT REGISTERED}") > -1) {
+						responseField.innerHTML = "Vi finner ingen bruker registrert med din e-postadresse.";
+					} else {
+						responseField.innerHTML = "Det skjedde en feil..";
+					}
+				} else if (xhttp.readyState == 4) {
+					responseField.innerHTML = "Det skjedde en feil..";
+				}
+			};
+			xhttp.open("GET", "/scripts/login/recoveryrequest.cgi?email=" + email, true);
+			xhttp.send();
+		}
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length,c.length);
+				}
+			}
+			return "";
+		}
+		function getParameterByName(name, url) {
+			if (!url) {
+			  url = window.location.href;
+			}
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			    results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+	</script>
+</body>
+</html>
