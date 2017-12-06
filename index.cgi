@@ -331,6 +331,9 @@ print('''
 			</div>
 		</div>
 	</div>
+	<footer>
+		<a href="https://github.com/Brakebusk/Kattenelever">Source code</a>
+	</footer>
 	<script src="../scripts/moment-with-locales.min.js"></script>
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 	<script src="scripts.js"></script>

@@ -11,6 +11,13 @@ header {
 	text-align: center;
 	color: white;
 }
+footer {
+	position: absolute;
+	bottom: 5px;
+}
+footer>a {
+	margin-left: 5px
+}
 h1 {
 	margin: 0;
 	padding: 0;
@@ -449,7 +456,8 @@ hr {
     width: 140px;
 	-webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .new-input-group-input {
     display: table-cell;
