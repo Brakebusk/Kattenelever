@@ -3,7 +3,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 header {
-	background-color: #32a094;
+	background-color: #1e90ff;
 	position: relative;
 	padding: 10px 0 0 5px;
 	top: 0;
@@ -21,7 +21,7 @@ footer>a {
 h1 {
 	margin: 0;
 	padding: 0;
-	text-shadow: 0px 2px 1px #1f776e;
+	text-shadow: 0px 2px 1px #185590;
 	font-size: 2.5em;
 }
 h2 {
