@@ -81,11 +81,6 @@ print('''
 	<!--[if lt IE 9]>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
-	<script>
-		if (window.location.protocol != "https:" && window.location.hostname != "localhost") {
-			window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-		}
-	</script>
 </head>
 <body onload="checkQuery();checkLogin();">
 	<div id="fb-root"></div>
