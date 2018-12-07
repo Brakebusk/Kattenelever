@@ -42,7 +42,7 @@ if len(email) > 0:
 		
 		resetLink = "https://kattenelever.no/passwordreset.cgi?resetcode=%s" % (resetcode)
 		
-		messageBody = '''Trykk på linken under for å endre ditt passord på Kattenelever:\n%s\n\nAlso, fuck you. Remember your fucking passwords.''' % (resetLink)
+		messageBody = '''Trykk på linken under for å endre ditt passord på Kattenelever:\n%s\n\Plz remember next time.''' % (resetLink)
 		
 		message = MIMEText(messageBody)
 		message['Subject'] = "Passordgjenopprettelse"
@@ -55,7 +55,7 @@ if len(email) > 0:
 			server.ehlo()
 			server.starttls()
 			server.ehlo()
-			server.login('kattenelever@outlook.com', '3EyxUAr2OMXOI5no')
+			server.login('', '')
 			server.send_message(message)
 			server.quit()
 			
